@@ -48,26 +48,79 @@ h1 {
     margin-bottom: 40px;
 }
 
+.password-container {
+    position: relative;
+}
+
 .password-field {
-    flex: 1;
     background-color: #374151;
     border: none;
     border-radius: 6px;
     padding: 16px;
+    padding-right: 50px;
     min-height: 52px;
     color: #55f991;
     font-family: 'Inter', monospace;
     font-size: 16px;
     font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     word-break: break-all;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.password-field:hover {
+    background-color: #4b5563;
 }
 
 .password-field:empty::before {
     content: "•••••••••••••••";
     color: #6b7280;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #9ca3af;
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.copy-btn:hover {
+    color: #55f991;
+    background-color: rgba(85, 249, 145, 0.1);
+}
+
+.copy-btn:active {
+    transform: translateY(-50%) scale(0.95);
+}
+
+.copy-btn.copied {
+    color: #10b981;
+}
+
+.copy-btn.copied svg {
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes checkmark {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
 }
 
 #generate-btn {
